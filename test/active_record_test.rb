@@ -27,6 +27,15 @@ class ActiveRecordTest < Minitest::Test
     assert_equal 'Kevin Spacey is emperor of the space', post.body
   end
 
+  def test_all
+    post = Post.all.first
+
+    assert_kind_of Post, post
+    assert_equal 1, post.id
+    assert_equal 'Space post', post.title
+    assert_equal 'Kevin Spacey is emperor of the space', post.body
+  end
+
   def test_execute_sql
     rows = Post.connection.execute("SELECT * FROM posts;")
     row = rows.first
