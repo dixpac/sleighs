@@ -27,7 +27,15 @@ module ActiveRecord
     end
 
     def self.all
-      find_by_sql("SELECT * FROM #{table_name}")
+      Relation.new(self)
+    end
+
+    def self.where(*args)
+      all.where(*args)
+    end
+
+    def self.order(*args)
+      all.order(*args)
     end
 
     def self.find_by_sql(sql)
