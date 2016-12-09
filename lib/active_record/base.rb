@@ -18,6 +18,7 @@ module ActiveRecord
       end
     end
 
+
     def self.table_name
       name.downcase + 's'
     end
