@@ -1,14 +1,6 @@
 require 'test_helper'
 
-require 'active_support'
-require 'active_record'
-
-
 class ActiveSupportTest < Minitest::Test
-  def setup
-    ActiveSupport::Dependecies.autoload_paths = Dir["#{__dir__}/blog/app/*"]
-  end
-
   def test_search_for_file
     file = ActiveSupport::Dependecies.search_for_file('application_controller')
     assert_equal "#{__dir__}/blog/app/controllers/application_controller.rb", file
