@@ -1,6 +1,12 @@
 require 'test_helper'
 
 require 'action_controller'
+require 'active_record'
+require 'active_support'
+require 'blog/app/models/application_record'
+require 'blog/app/models/post'
+require 'blog/app/controllers/application_controller'
+require 'blog/app/controllers/posts_controller'
 
 class ActionControllerTest < Minitest::Test
   class TestController < ActionController::Base
@@ -40,5 +46,18 @@ class ActionControllerTest < Minitest::Test
     controller.process :show
 
     assert_equal ['before', 'show', 'after'], controller.response
+  end
+
+  class Request
+    def params
+      { 'id' => 1}
+    end
+  end
+
+  def test_real_controller
+    controller = PostsController.new
+    controller.request = Request.new
+    controller.process :show
+    assert_kind_of Post, controller.instance_variable_get(:@post)
   end
 end
