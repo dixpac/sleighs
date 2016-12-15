@@ -1,11 +1,6 @@
 require 'test_helper'
 
 class ActiveRecordTest < Minitest::Test
-  def setup
-    Post.establish_connection(
-      database: "#{__dir__}/blog/db/development.sqlite3")
-  end
-
   def test_initialize
     post = Post.new(id: 1, title: 'Cooler', body: 'Super cool post!')
 

@@ -1,20 +1,5 @@
 require 'test_helper'
 
-require 'rack'
-require 'rails'
-#require 'rails/application'
-require 'active_support'
-require 'action_dispatch'
-require 'action_controller'
-require 'active_record'
-require 'action_dispatch/routing/route_set'
-require 'action_dispatch/routing/mapper'
-
-require 'blog/app/controllers/application_controller'
-require 'blog/app/controllers/posts_controller'
-require 'blog/app/models/application_record'
-require 'blog/app/models/post'
-
 class ActionDispatchTest < Minitest::Test
   def test_add_route
     routes = ActionDispatch::Routing::RouteSet.new

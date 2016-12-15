@@ -7,4 +7,4 @@ require 'rack/mock'
 
 #MiniTest::Reporters.use! [Minitest::Reporters::DefaultReporter.new]
 
-#require_relative "blog/config/environment"
+require_relative "blog/config/environment"

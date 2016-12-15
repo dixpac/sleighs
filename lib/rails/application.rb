@@ -25,7 +25,7 @@ module Rails
         database: "#{@root}/db/#{Rails.env}.sqlite3"
       )
 
-      load @root.join('config/routes.rb')
+      load @root.join("config/routes.rb")
     end
 
     def root

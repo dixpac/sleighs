@@ -1,13 +1,5 @@
 require 'test_helper'
 
-require 'action_controller'
-require 'active_record'
-require 'active_support'
-require 'blog/app/models/application_record'
-require 'blog/app/models/post'
-require 'blog/app/controllers/application_controller'
-require 'blog/app/controllers/posts_controller'
-
 class ActionControllerTest < Minitest::Test
   class TestController < ActionController::Base
     before_action :before, only: [:show]
