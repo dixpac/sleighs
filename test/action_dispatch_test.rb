@@ -62,14 +62,14 @@ class ActionDispatchTest < Minitest::Test
       root to: 'posts#index'
       resources :posts
     end
-    env = {
-      "REQUEST_METHOD" => "GET",
-      "PATH_INFO" => "/posts/new",
-    }
 
-    status, header, body = routes.call(env)
+    request = Rack::MockRequest.new(routes)
 
-    assert_equal 200, status
+    assert request.get('/').ok?
+    assert request.get('posts/new').ok?
+    assert request.get('posts').ok?
+    assert request.get('posts/show?id=1').ok?
+    assert request.post('/').not_found?
   end
 
 end
