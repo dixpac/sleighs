@@ -1,6 +1,8 @@
 require 'test_helper'
 
 require 'rack'
+require 'rails'
+#require 'rails/application'
 require 'active_support'
 require 'action_dispatch'
 require 'action_controller'
@@ -57,11 +59,7 @@ class ActionDispatchTest < Minitest::Test
   end
 
   def test_call
-    routes = ActionDispatch::Routing::RouteSet.new
-    routes.draw do
-      root to: 'posts#index'
-      resources :posts
-    end
+    routes = Rails.application.routes
 
     request = Rack::MockRequest.new(routes)
 

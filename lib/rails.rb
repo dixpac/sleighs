@@ -10,7 +10,6 @@ module Rails
   end
 
   def self.application
-    putas 'lol' * 100
     Application.instance
   end
 
