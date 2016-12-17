@@ -33,8 +33,8 @@ module Rails
     end
 
     def default_middleware_stack
-      Rask::Builder.new do
-        use Rack::ContentLenght
+      Rack::Builder.new do
+        use Rack::ContentLength
         use Rack::CommonLogger
         use Rack::ShowExceptions
 
