@@ -2,6 +2,14 @@ require 'erb'
 
 module ActionView
   class Template
+    CACHE = Hash.new do |cache, file|
+      cache[file] = Template.new(File.read(file), file)
+    end
+
+    def self.find(file)
+      CACHE[file]
+    end
+
     def initialize(source, name)
       @source = source
       @name = name
