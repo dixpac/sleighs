@@ -54,7 +54,7 @@ class ActionViewTest < Minitest::Test
     request = Rack::MockRequest.new(Rails.application)
     response = request.get("/posts/show?id=1")
 
-    assert_match "<h1>Space post</h1>", response.body
+    assert_match "<h1>The blog</h1>", response.body
     assert_match "<html>", response.body
   end
 end
